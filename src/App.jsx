@@ -20,7 +20,7 @@ function App() {
 
   function clickHandler(selectedButton) {
     setTabContent(selectedButton);
-    console.log("Clicked... dddd!!!",selectedButton);
+    console.log("Clicked ",selectedButton);
   }
   return (
     <div>
