@@ -1,4 +1,4 @@
-import { CORE_CONCEPTS } from "./data";
+import { CORE_CONCEPTS,EXAMPLES } from "./data";
 import Header from "./components/Header";
 import TabButton from "./components/TabButton";
 import { useState } from "react";
@@ -16,7 +16,7 @@ function CoreConcepts({image,title,description}) {
 
 function App() {
 
-  const [tabContent,setTabContent] = useState("Please select a tab");
+  const [tabContent,setTabContent] = useState("components");
 
   function clickHandler(selectedButton) {
     setTabContent(selectedButton);
@@ -38,12 +38,20 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onHandleClick={() => clickHandler("Components")}>Components</TabButton>
-            <TabButton onHandleClick={() => clickHandler("JSX")}>JSX</TabButton>
-            <TabButton onHandleClick={() => clickHandler("Props")}>Props</TabButton>
-            <TabButton onHandleClick={() => clickHandler("State")}>State</TabButton>
+            <TabButton onHandleClick={() => clickHandler("components")}>Components</TabButton>
+            <TabButton onHandleClick={() => clickHandler("jsx")}>JSX</TabButton>
+            <TabButton onHandleClick={() => clickHandler("props")}>Props</TabButton>
+            <TabButton onHandleClick={() => clickHandler("state")}>State</TabButton>
           </menu>
-          {tabContent}
+          <div id="tab-content">
+            <h3>{EXAMPLES[tabContent].title}</h3>
+            <p>{EXAMPLES[tabContent].description}</p>
+            <pre>
+              <code>
+              {EXAMPLES[tabContent].code}
+              </code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
